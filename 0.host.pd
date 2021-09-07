@@ -1,4 +1,4 @@
-#N canvas 38 59 654 478 10;
+#N canvas 3 106 1366 695 10;
 #X obj 204 53 catch~ dacA;
 #X obj 108 25 adc~ 1;
 #X obj 224 83 dac~ 1;
@@ -20,6 +20,12 @@
 #X obj 374 294 slll.pan;
 #X obj 391 339 slll.amp;
 #X text 221 -23 DSP ON - DSP OFF;
+#X obj 877 158 receive~ adcA;
+#X obj 890 522 throw~ dacA;
+#X obj 970 521 throw~ dacB;
+#X obj 901 402 slll.amp;
+#X obj 620 314 *~ 50;
+#X obj 876 181 slll.grainfreeze;
 #X connect 0 0 2 0;
 #X connect 1 0 6 0;
 #X connect 7 0 9 0;
@@ -37,3 +43,9 @@
 #X connect 18 1 19 1;
 #X connect 19 0 16 0;
 #X connect 19 1 17 0;
+#X connect 21 0 26 0;
+#X connect 24 0 22 0;
+#X connect 24 1 23 0;
+#X connect 25 0 24 0;
+#X connect 25 0 24 1;
+#X connect 26 0 25 0;

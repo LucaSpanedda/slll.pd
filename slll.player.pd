@@ -1,0 +1,30 @@
+#N canvas 366 95 399 217 10;
+#X obj 224 131 outlet~;
+#X obj 280 131 outlet~;
+#X obj 255 91 readsf~ 2;
+#X msg 294 21 start;
+#X msg 335 21 stop;
+#X obj 107 120 bng 12 250 50 0 empty empty load_and_play 17 7 0 10
+-262144 -1 -1;
+#X obj 212 29 openpanel;
+#X msg 263 61 open \$1 \, 1;
+#X obj 83 35 inlet;
+#X obj 120 35 inlet;
+#X obj 158 35 inlet;
+#X obj 107 139 bng 12 250 50 0 empty empty start 17 7 0 10 -262144
+-1 -1;
+#X obj 150 139 bng 12 250 50 0 empty empty stop 17 7 0 10 -262144 -1
+-1;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 8 0 5 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 3 0;
+#X connect 12 0 4 0;
+#X coords 0 -1 1 1 100 60 1 100 100;

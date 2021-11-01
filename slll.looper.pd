@@ -1,13 +1,13 @@
-#N canvas 147 282 809 596 10;
+#N canvas 199 282 809 596 10;
 #X msg 397 242 resize \$1;
 #X obj 352 58 samplerate~;
 #X floatatom 352 110 5 0 0 0 - - -;
 #X obj 351 34 loadbang;
 #X obj 342 355 phasor~;
-#X obj 217 118 bng 15 250 50 0 empty empty record 0 -8 0 10 -262144
+#X obj 209 133 bng 15 250 50 0 empty empty record 0 -8 0 10 -262144
 -1 -1;
 #X obj 388 198 *;
-#X floatatom 217 183 6 0 0 2 seconds - -;
+#X floatatom 209 198 6 0 0 2 seconds - -;
 #X obj 369 160 t b f;
 #X obj 158 8 inlet;
 #X msg 427 111 1;
@@ -16,7 +16,7 @@
 #X obj 373 423 *~;
 #X text 20 -10 audio input;
 #X obj 22 10 inlet~;
-#X obj 373 532 outlet~;
+#X obj 373 508 outlet~;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array \$0-recplay 44100 float 3;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1344,12 +1344,12 @@
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0;
 #X coords 0 1 44100 -1 100 80 1 0 0;
-#X restore 112 152 graph;
+#X restore 105 134 graph;
 #X obj 21 61 tabwrite~ \$0-recplay;
 #X obj 397 266 s \$0-recplay;
 #X obj 373 483 tabread4~ \$0-recplay;
 #X msg 397 314 0;
-#X floatatom 217 150 6 0 0 2 pitch - -;
+#X floatatom 209 165 6 0 0 2 pitch - -;
 #X obj 209 9 inlet;
 #X obj 342 315 *~ 1;
 #X obj 38 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -1366,12 +1366,10 @@ dimension of an array table using the phasor;
 #X text 154 -8 dim sec;
 #X text 112 -9 rec;
 #X text 426 315 restart the phase;
+#X text 104 219 the array object design a tabwrite table that we are
+reading;
 #X text 428 58 current samplerate (1 second);
 #X text 503 483 read the table;
-#X floatatom 218 216 6 0 0 2 overdub - -;
-#X obj 341 530 *~;
-#X obj 254 10 inlet;
-#X text 254 -7 overdub amplitude;
 #X connect 0 0 19 0;
 #X connect 1 0 2 0;
 #X connect 2 0 6 0;
@@ -1395,14 +1393,10 @@ dimension of an array table using the phasor;
 #X connect 12 0 24 0;
 #X connect 13 0 20 0;
 #X connect 15 0 18 0;
-#X connect 20 0 37 0;
 #X connect 20 0 16 0;
 #X connect 21 0 4 1;
 #X connect 22 0 24 1;
 #X connect 23 0 22 0;
 #X connect 24 0 4 0;
 #X connect 25 0 18 0;
-#X connect 36 0 37 1;
-#X connect 37 0 18 0;
-#X connect 38 0 36 0;
-#X coords 0 -1 1 1 180 140 1 100 100;
+#X coords 0 -1 1 1 180 120 1 100 100;

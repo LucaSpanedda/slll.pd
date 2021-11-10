@@ -1,0 +1,24 @@
+#N canvas 0 0 256 235 10;
+#X obj 31 -2 inlet;
+#X obj 95 178 outlet;
+#X obj 39 38 bng 15 250 50 0 empty empty + 4 -6 0 12 -262144 -1 -1
+;
+#X obj 112 61 nbx 5 14 -1e+037 1e+037 0 0 empty empty count_top 0 -8
+0 10 -262144 -1 -1 0 256;
+#X obj 94 90 mod;
+#X obj 94 116 + 1;
+#X obj 80 -2 inlet;
+#X obj 74 59 + 1;
+#X obj 105 153 nbx 5 14 -1e+037 1e+037 0 0 empty empty current_count
+0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 39 59 f;
+#X connect 0 0 2 0;
+#X connect 2 0 9 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 3 0;
+#X connect 7 0 9 1;
+#X connect 8 0 1 0;
+#X connect 9 0 4 0;
+#X connect 9 0 7 0;

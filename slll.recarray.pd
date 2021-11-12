@@ -1,57 +1,73 @@
-#N canvas 623 3 567 572 10;
-#X obj 121 44 inlet;
-#X obj 161 44 inlet;
-#X obj 108 121 bng 12 250 50 0 empty empty rec 17 7 0 10 -262144 -1
--1;
-#X obj 151 121 bng 12 250 50 0 empty empty stop 17 7 0 10 -262144 -1
--1;
-#X obj 96 226 makefilename rec%d.wav;
-#X obj 143 165 t b;
-#X msg 229 252 stop;
-#X obj 74 45 inlet~;
-#X symbolatom 108 136 0 0 0 0 - - -;
-#X obj 125 189 random 1e+006;
-#X obj 297 410 soundfiler;
-#X obj 256 278 t b;
-#X obj 94 357 writesf~ 1;
-#X msg 99 258 open \$1 \, start;
-#X symbolatom 314 356 0 0 0 0 - - -;
-#X obj 257 333 unpack s s;
-#X obj 256 306 pack s s;
-#X obj 236 172 random 1e+006;
-#X obj 239 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 671 65 676 662 10;
+#X obj 80 35 inlet;
+#X obj 105 320 + 1;
+#X obj 155 290 + 1;
+#X obj 123 353 nbx 5 14 -1e+037 1e+037 0 0 empty empty current_count
+0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 120 290 f;
+#X obj 121 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 236 117 loadbang;
-#X obj 213 197 makefilename array%d;
-#X obj 313 379 sprintf read -resize %s array%d;
-#X obj 112 391 phasor~ 1;
-#X msg 65 425 arraydialog \$1 100 0 0;
-#N canvas 4 61 415 238 hostArray 0;
-#X restore 136 481 pd hostArray;
-#X obj 135 460 s pd-hostArray;
-#X connect 0 0 2 0;
+#X obj 122 243 t b;
+#X msg 275 402 stop;
+#X obj 33 35 inlet~;
+#X symbolatom 105 139 0 0 0 0 - - -;
+#X msg 124 402 open \$1 \, start;
+#X obj 105 121 tgl 15 0 empty empty rec_on/off 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 122 216 bng 12 250 50 0 empty empty rec 17 7 0 10 -262144 -1
+-1;
+#X obj 165 216 bng 12 250 50 0 empty empty stop 17 7 0 10 -262144 -1
+-1;
+#X obj 165 176 sel 0;
+#X obj 212 176 sel 1;
+#X obj 275 426 t b;
+#X obj 128 464 writesf~ 1;
+#X obj 337 629 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
+#X obj 325 602 soundfiler;
+#X obj 267 484 pack f f;
+#X obj 267 506 unpack f f;
+#X obj 402 602 print;
+#X obj 344 546 nbx 5 14 -1e+037 1e+037 0 0 empty empty current_count
+0 -8 0 10 -262144 -1 -1 0 256;
+#X obj 267 452 del 100;
+#X obj 134 374 makefilename record-%d.wav;
+#X msg 344 570 read -resize record-\$1.wav record1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array record1 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 273 204 graph;
+#X connect 0 0 11 0;
 #X connect 1 0 3 0;
-#X connect 2 0 5 0;
-#X connect 3 0 6 0;
-#X connect 4 0 8 0;
-#X connect 4 0 13 0;
-#X connect 4 0 16 1;
-#X connect 5 0 9 0;
-#X connect 6 0 12 0;
-#X connect 6 0 11 0;
-#X connect 7 0 12 0;
-#X connect 9 0 4 0;
-#X connect 11 0 16 0;
-#X connect 13 0 12 0;
-#X connect 14 0 21 0;
-#X connect 15 1 14 0;
-#X connect 16 0 15 0;
-#X connect 17 0 20 0;
-#X connect 17 0 21 1;
-#X connect 18 0 17 0;
+#X connect 2 0 4 1;
+#X connect 3 0 20 1;
+#X connect 3 0 25 0;
+#X connect 4 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 7 0 16 0;
+#X connect 7 0 17 0;
+#X connect 8 0 17 0;
+#X connect 10 0 17 0;
+#X connect 11 0 14 0;
+#X connect 11 0 15 0;
+#X connect 12 0 6 0;
+#X connect 13 0 7 0;
+#X connect 14 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 24 0;
 #X connect 19 0 18 0;
-#X connect 20 0 23 0;
-#X connect 21 0 10 0;
-#X connect 22 0 12 0;
-#X connect 23 0 25 0;
+#X connect 20 0 21 0;
+#X connect 21 1 23 0;
+#X connect 23 0 26 0;
+#X connect 24 0 20 0;
+#X connect 25 0 10 0;
+#X connect 25 0 9 0;
+#X connect 26 0 22 0;
+#X connect 26 0 19 0;
 #X coords 0 -1 1 1 100 60 1 100 100;
